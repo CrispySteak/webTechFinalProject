@@ -4,7 +4,8 @@
 	<head>
 		<?php 
 			include_once("includes.php");
-		?>	
+		?>
+		<script src="homeScript.js"></script>	
 	</head>
 	
 	<body>
