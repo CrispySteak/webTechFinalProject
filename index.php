@@ -14,6 +14,8 @@
 			include_once("navigation.php");
 			
 		?>
+		<canvas id="gameCanvas"">
+		</canvas> 
 	</body>
 
 </html>
