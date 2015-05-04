@@ -4,7 +4,6 @@
 	<head>
 		<?php 
 			include_once("includes.php");
-			echo "Hello";
 		?>
 		<script src="homeScript.js"></script>	
 	</head>
@@ -19,43 +18,63 @@
 		<canvas id="gameCanvas"">
 		</canvas> -->
 		
-		<!-- The image selection slider at the top of the page -->
-		<div id="image_selection">
-		</div>
 		
 		<div id="game_selection">
+			
+			<div id="image_chosen_div">
+				<img id="chosen_image" src="" alt=""/>
+			</div>
 			
 			<div id="image_selection">
 			</div>
 			
 			<div id="game_selection_form">
 				<div id="difficulty_selection">
-					<input type="radio" name="radio" id="radio1" class="radio" checked/>
-					<label for="radio1">Easy</label>
+					<div class="radio_class difficulty_radio">
+						<input type="radio" name="radio1" id="easy_radio" class="radio" value=0 checked/>
+						<label for="easy_radio">Easy</label>
 					</div>
 
-					<div>
-					<input type="radio" name="radio" id="radio2" class="radio"/>
-					<label for="radio2">Medium</label>
+					<div class="radio_class difficulty_radio">
+						<input type="radio" name="radio1" id="medium_radio" class="radio" value=1 />
+						<label for="medium_radio">Medium</label>
 					</div>
 
-					<div>	
-					<input type="radio" name="radio" id="radio3" class="radio"/>
-					<label for="radio3">Hard</label>
+					<div class="radio_class difficulty_radio">	
+						<input type="radio" name="radio1" id="hard_radio" class="radio" value=2 />
+						<label for="hard_radio">Hard</label>
 					</div>
 
-					<div>	
-					<input type="radio" name="radio" id="radio4" class="radio"/>
-					<label for="radio4">Expert</label>
+					<div class="radio_class difficulty_radio">	
+						<input type="radio" name="radio1" id="expert_radio" class="radio" value=3 />
+						<label for="expert_radio">Expert</label>
 					</div>
 				</div>
-				<button type="button">Timed</button>
+				
+				<div id="mode_selection">
+					<div class="radio_class mode_radio">
+						<input type="radio" name="radio" id="casual_radio" class="radio" value=0 checked/>
+						<label for="casual_radio">Casual</label>
+					</div>
+
+					<div class="radio_class mode_radio">
+						<input type="radio" name="radio" id="timed_radio" class="radio" value=1 />
+						<label for="timed_radio">Timed</label>
+					</div>
+					
+				</div>
+				
+				<div id="game_start">
+					<div class="start_class">
+						<button type="button" class="button_class" id="start_button">Start!</button>
+					</div>
+				</div>
 			</div>
 			
 		</div>
 		
 		<!-- The game board itself... think divs within divs, the inner divs are all displaying part of the image and are moveable and will snap -->
-		<div id="board">
+		<div id="gameboard">
 		</div>
 		
 		
