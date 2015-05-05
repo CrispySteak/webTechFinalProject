@@ -22,7 +22,7 @@
 		<div id="game_selection">
 			
 			<div id="image_chosen_div">
-				<img id="chosen_image" src="" alt=""/>
+				<img id="chosen_image" src="jellyfish.jpg" alt=""/>
 			</div>
 			
 			<div id="image_selection">

@@ -118,3 +118,26 @@ input[type=radio]:checked + label {
 }
 /****************************/
 /****************************/
+
+#gameboard {
+	border: 4px solid black;
+	margin: 0 auto;
+}
+
+.piece_div_class {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	display: inline-block;
+	float: left;
+	border: 0px solid black;
+}
+
+.piece_div_class:hover {
+	opacity: .5;
+}
+
+.piece_image_class {
+	overflow: hidden;
+	display: block;
+}

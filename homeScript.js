@@ -5,8 +5,8 @@
 var gameCanvas;			//canvas element
 var ctx;				//canvas context
 
-var BOARD_MAX_WIDTH = 800;
-var BOARD_MAX_HEIGHT = 600;
+var BOARD_MAX_WIDTH = 600;
+var BOARD_MAX_HEIGHT = 400;
 
 var board = {
 	rows	: 3,
@@ -15,37 +15,52 @@ var board = {
 	height	: BOARD_MAX_HEIGHT
 }
 
-var image = {
+var selectedImage = {
 	source	: "",
 	width	: 0,
 	height	: 0
 }
 
+function PuzzlePiece(in_row,in_column,in_object)
+{
+	
+	this.x = in_row;
+	this.y = in_column;
+	
+	this.object = in_object;
+	
+}
+
+// the array of pieces
+var pieces = [];
+
 $(document).ready(function(){
 	
-//	gameCanvas=document.getElementById("gameCanvas");				//assign canvas on load
-//	ctx=gameCanvas.getContext("2d");								//assign canvas
-//	gameCanvas.addEventListener('click', gameCanvasClick, false);	//add click listener to canvas
-//	ctx.font='20px Arial';											//sent the font of the context for text output (otherwise it is illegible)
-//	ctx.fillText("Click to start the game!",50,50);					//the dimensions do not seem to line up with pixels too well
+	$("#chosen_image").hide();
 	
-	
-	
-	
+	//-------------------------------------------------------------
 	// handler for the "Start!" button
+	//-------------------------------------------------------------
 	$("#start_button").click(function() {
 		$("#game_selection").fadeOut(400);
 		
-		// set the board size based on the aspect ratio of the selected image
-		image.source = "jellyfish.jpg";
-		//image.width = $("#chosen_image").naturalWidth();
-		//image.height = $("#chosen_image").naturalHeight();
+		// set the image properties based on the selected image
+		selectedImage.source = document.getElementById("chosen_image").src;
+		selectedImage.width = document.getElementById("chosen_image").naturalWidth;
+		selectedImage.height = document.getElementById("chosen_image").naturalHeight;
 		
-		var newSize = scaleSize(board.width,board.height,800,600);
+		// adjust the image to a proper size
+		var newSize = scaleSize(board.width,board.height,selectedImage.width,selectedImage.height);
 		
-		image.width = newSize[0];
-		image.height = newSize[1];
+		selectedImage.width = newSize[0];
+		selectedImage.height = newSize[1];
 		
+		// set board to aspect ratio
+		board.width = selectedImage.width;
+		board.height = selectedImage.height;
+		
+		$("#gameboard").width(board.width);
+		$("#gameboard").height(board.height);
 
 		// set the rows/columns based on the difficulty
 		var difficulty = $("input[name=radio1]:checked").val();
@@ -78,40 +93,61 @@ $(document).ready(function(){
 		{
 			for(var j = 0;j<board.columns;j++)
 			{
+				
+				// the div that contains the image
 				var newDiv = document.createElement("div");
-				newDiv.className = "piece_class";
-				newDiv.id = "piece" + ((i * board.rows) + j);
+				newDiv.className = "piece_div_class";
+				newDiv.id = "piece_div" + ((i * board.rows) + j);
 				newDiv.width = board.width / board.columns;
 				newDiv.height = board.height / board.rows;
 				
 				document.getElementById("gameboard").appendChild(newDiv);
 				
+				// the image to put in the div (with the correct offset applied
 				var newImage = document.createElement("img");
-				newImage.src = image.source;
-				newImage.width = image.width;
-				newImage.height = image.height;
+				newImage.className = "piece_image_class";
+				newImage.id = "piece_image" + ((i * board.rows) + j);
+				
+				newImage.src = selectedImage.source;
+				newImage.width = selectedImage.width;
+				newImage.height = selectedImage.height;
 				
 				newDiv.appendChild(newImage);
+				$("#piece_image" + ((i * board.rows) + j)).css({"position":"absolute",
+					"left":"-" + Math.floor((newDiv.width * j)) + "px",
+					"top":"-" + Math.floor((newDiv.height * i)) + "px"});
+				
+				
+				var tempPiece = new PuzzlePiece(i,j,newImage);
+				pieces.push(tempPiece);
 			}
 		}
 		
-	});
+		
+		$(".piece_div_class").width(board.width/board.columns);
+		$(".piece_div_class").height(board.height/board.rows);
+		
+	}); // end Start! button handler
+	//-------------------------------------------------------------
 });
 
 
 function scaleSize(maxW, maxH, currW, currH){
 
 	var ratio = currH / currW;
-	alert(currW + " " + currH);
+	//alert(currW + " " + currH);
 	if(currW >= maxW && ratio <= 1){
 		currW = maxW;
 		currH = currW * ratio;
-	} else if(currH >= maxH)
+	} else 
 	{
-		currH = maxH;
-		currW = currH / ratio;
+		if(currH >= maxH)
+		{
+			currH = maxH;
+			currW = currH / ratio;
+		}
 	}
-	alert(currW + " " + currH);
+	//alert(currW + " " + currH);
 	return [currW, currH];
 }
 
