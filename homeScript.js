@@ -5,10 +5,13 @@
 var gameCanvas;			//canvas element
 var ctx;				//canvas context
 
-var BOARD_MAX_WIDTH = 600;
-var BOARD_MAX_HEIGHT = 400;
+var BOARD_MAX_WIDTH = 800;
+var BOARD_MAX_HEIGHT = 600;
 
-var SNAP_DISTANCE = 15;
+var CHOOSE_WIDTH = 300;
+var CHOOSE_HEIGHT = 100;
+
+var SNAP_DISTANCE = 20;
 
 var board = {
 	rows	: 3,
@@ -36,6 +39,8 @@ function PuzzlePiece(in_row,in_column,in_object)
 // the array of pieces
 var pieces = [];
 
+var imagesArray = ["jellyfish.jpg","tree.jpg"];
+var current_image = 0;
 
 //-------------------------------------------------------------
 // Document Ready Function
@@ -43,6 +48,8 @@ var pieces = [];
 $(document).ready(function(){
 	
 	$("#chosen_image").hide();
+	
+	setupWindow();	
 	
 	//-------------------------------------------------------------
 	// handler for the "Start!" button
@@ -125,8 +132,7 @@ $(document).ready(function(){
 					"left":"-" + Math.floor((newDiv.width * j)) + "px",
 					"top":"-" + Math.floor((newDiv.height * i)) + "px"});
 				
-				// set the click listener for the piece
-				$("#piece_image" + ((i * board.rows) + j)).click(pieceClick);
+				
 				// set the click listener for the piece
 				$("#piece_image" + ((i * board.rows) + j)).mouseup(pieceRelease);
 				
@@ -139,12 +145,31 @@ $(document).ready(function(){
 		$(".piece_div_class").width(board.width/board.columns);
 		$(".piece_div_class").height(board.height/board.rows);
 		$(".piece_div_class").draggable();
+		$("#gameboard").delay(400).fadeIn(400);
 		
 	}); // end Start! button handler
 	//-------------------------------------------------------------
 });
 //-------------------------------------------------------------
 
+
+function setupWindow()
+{
+	$("#gameboard").hide();
+	
+	//$("#chosen_image").attr('src',imagesArray[1]);
+	// adjust the image to a proper size
+	//alert(document.getElementById("chosen_image").naturalWidth);
+	var chooseSize = scaleSize(CHOOSE_WIDTH,CHOOSE_HEIGHT,document.getElementById("chosen_image").naturalWidth,document.getElementById("chosen_image").naturalHeight);
+	$("#image_chosen_div").width(chooseSize[0]);
+	$("#image_chosen_div").height(chooseSize[1]);
+	$("#chosen_image").width(chooseSize[0]);
+	$("#chosen_image").height(chooseSize[1]);
+	$("#game_selection").height($(window).height() - 20);
+	$("#game_selection").width($(window).width() - 20);
+	$("#chosen_image").show();
+	//alert(document.getElementById("chosen_image").naturalWidth);
+}
 
 //-------------------------------------------------------------
 // Function to scale the image size to the board size
@@ -173,9 +198,16 @@ function scaleSize(maxW, maxH, currW, currH){
 //-------------------------------------------------------------
 // Piece Click Function
 //-------------------------------------------------------------
-function pieceClick(event){	
-	//event.target.parentNode.style.left = "0px";
-	//event.target.parentNode.style.top = "900px";
+function nextImage(event){	
+	
+	current_image = ( current_image + 1 ) % imagesArray.length;
+	$("#chosen_image").attr("src",imagesArray[current_image]);
+	
+	var chooseSize = scaleSize(CHOOSE_WIDTH,CHOOSE_HEIGHT,document.getElementById("chosen_image").naturalWidth,document.getElementById("chosen_image").naturalHeight);
+	$("#image_chosen_div").width(chooseSize[0]);
+	$("#image_chosen_div").height(chooseSize[1]);
+	$("#chosen_image").width(chooseSize[0]);
+	$("#chosen_image").height(chooseSize[1]);
 }
 //-------------------------------------------------------------
 

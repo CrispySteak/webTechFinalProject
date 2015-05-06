@@ -7,23 +7,11 @@ header {
 /****************************/
 /****************************/
 
-
-/****************************/
-/* Canvas					*/
-/****************************/
-#gameCanvas {
-	width: 512;
-	height: 512;
-	border: 1px solid #000000;
-}
-/****************************/
-/****************************/
-
-
 body {
 	font: 16px sans-serif;
 	color: #666666;
 	margin: 0 auto;
+	background-color: #333333;
 }
 
 
@@ -35,10 +23,23 @@ body {
 	background-color: rgba(0,0,0,.5);
 	margin: 0 auto;
 	padding: 10px;
+	position: fixed;
+}
+
+#image_chosen_div {
+	display: block;
+	margin: 0 auto;
+	border: 3px solid #333333;
+	position: relative;
+}
+
+#chosen_image {
+	
 }
 
 #game_selection_form {
 	display: block;
+	position: relative;
 }
 
 #difficulty_selection {
@@ -121,6 +122,7 @@ input[type=radio]:checked + label {
 
 #gameboard {
 	border: 3px solid black;
+	border-style: inset;
 	margin: 0 auto;
 }
 
