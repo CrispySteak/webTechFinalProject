@@ -5,6 +5,9 @@
 var gameCanvas;			//canvas element
 var ctx;				//canvas context
 
+
+var current_time=60;
+
 var BOARD_MAX_WIDTH = 800;
 var BOARD_MAX_HEIGHT = 600;
 
@@ -12,6 +15,7 @@ var CHOOSE_WIDTH = 300;
 var CHOOSE_HEIGHT = 100;
 
 var SNAP_DISTANCE = 20;
+
 
 var board = {
 	rows	: 3,
@@ -206,7 +210,12 @@ function startGame()
 	}
 	
 	// do something based on the game mode selected (show a timer or don't)
-	
+	{
+		//setup timer function to countdown every second
+		setInterval(function () {
+			current_time--;//change time
+		}, 1000);//every 1000 milliseconds
+	}
 	// cut up the image
 	for(var i = 0;i<board.rows;i++)
 	{

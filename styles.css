@@ -143,3 +143,8 @@ input[type=radio]:checked + label {
 	overflow: hidden;
 	display: block;
 }
+#timer{
+	text-align: center;
+	font-weight:bold;
+	color: white;
+}
