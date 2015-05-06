@@ -11,8 +11,8 @@ var current_time=60;
 var BOARD_MAX_WIDTH = 800;
 var BOARD_MAX_HEIGHT = 600;
 
-var CHOOSE_WIDTH = 300;
-var CHOOSE_HEIGHT = 100;
+var CHOOSE_WIDTH = 400;
+var CHOOSE_HEIGHT = 300;
 
 var SNAP_DISTANCE = 20;
 
@@ -52,7 +52,9 @@ var current_image = 0;
 //-------------------------------------------------------------
 $(document).ready(function(){
 	
-	$("#chosen_image").hide();
+	//$("#chosen_image").hide();
+	$("#gameboard").width(board.width);
+	$("#gameboard").height(board.height);
 	//setupImageChoices();
 	setupWindow();	
 	
@@ -81,7 +83,7 @@ function setupImageChoices()
 //-------------------------------------------------------------
 function setupWindow()
 {
-	$("#gameboard").hide();
+	//$("#gameboard").hide();
 	
 	//$("#chosen_image").attr('src',imagesArray[1]);
 	// adjust the image to a proper size
@@ -93,7 +95,7 @@ function setupWindow()
 	$("#chosen_image").height(chooseSize[1]);
 	$("#game_selection").height($(window).height() - 20);
 	$("#game_selection").width($(window).width() - 20);
-	$("#chosen_image").show();
+	//$("#chosen_image").show();
 	//alert(document.getElementById("chosen_image").naturalWidth);
 }
 //-------------------------------------------------------------
@@ -274,7 +276,28 @@ function startGame()
 	$(".piece_div_class").width(board.width/board.columns);
 	$(".piece_div_class").height(board.height/board.rows);
 	$(".piece_div_class").draggable();
-	$("#gameboard").delay(400).fadeIn(400);
 	
+	shuffle();
+	
+	//$("#gameboard").delay(400).fadeIn(400);
+	
+}
+//-------------------------------------------------------------
+
+//-------------------------------------------------------------
+// Shuffle Pieces
+//-------------------------------------------------------------
+function shuffle() 
+{
+	var offset_left = $("#piece_div0").offset().left;
+	var offset_top = $("#piece_div0").offset().top;
+	var piece_width = board.width / board.columns;
+	var piece_height = board.height / board.rows;
+	
+	for(var i = 0;i < board.rows*board.columns; i++)
+	{
+		document.getElementById("piece_div" + i).style.left = ((Math.random() * ($(document).width() - piece_width))) - $("#piece_div" + i).offset().left;
+		document.getElementById("piece_div" + i).style.top = ((Math.random() * ($(window).height() - piece_height))) - $("#piece_div" + i).offset().top;
+	}
 }
 //-------------------------------------------------------------
