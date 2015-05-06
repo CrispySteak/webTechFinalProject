@@ -8,6 +8,8 @@ var ctx;				//canvas context
 var BOARD_MAX_WIDTH = 600;
 var BOARD_MAX_HEIGHT = 400;
 
+var SNAP_DISTANCE = 15;
+
 var board = {
 	rows	: 3,
 	columns	: 3,
@@ -34,6 +36,10 @@ function PuzzlePiece(in_row,in_column,in_object)
 // the array of pieces
 var pieces = [];
 
+
+//-------------------------------------------------------------
+// Document Ready Function
+//-------------------------------------------------------------
 $(document).ready(function(){
 	
 	$("#chosen_image").hide();
@@ -113,25 +119,36 @@ $(document).ready(function(){
 				newImage.height = selectedImage.height;
 				
 				newDiv.appendChild(newImage);
+				
+				// set the css of the specific piece
 				$("#piece_image" + ((i * board.rows) + j)).css({"position":"absolute",
 					"left":"-" + Math.floor((newDiv.width * j)) + "px",
 					"top":"-" + Math.floor((newDiv.height * i)) + "px"});
 				
+				// set the click listener for the piece
+				$("#piece_image" + ((i * board.rows) + j)).click(pieceClick);
+				// set the click listener for the piece
+				$("#piece_image" + ((i * board.rows) + j)).mouseup(pieceRelease);
 				
-				var tempPiece = new PuzzlePiece(i,j,newImage);
+				// add the piece to the array of pieces
+				var tempPiece = new PuzzlePiece(j,i,newImage);
 				pieces.push(tempPiece);
 			}
 		}
 		
-		
 		$(".piece_div_class").width(board.width/board.columns);
 		$(".piece_div_class").height(board.height/board.rows);
+		$(".piece_div_class").draggable();
 		
 	}); // end Start! button handler
 	//-------------------------------------------------------------
 });
+//-------------------------------------------------------------
 
 
+//-------------------------------------------------------------
+// Function to scale the image size to the board size
+//-------------------------------------------------------------
 function scaleSize(maxW, maxH, currW, currH){
 
 	var ratio = currH / currW;
@@ -150,9 +167,43 @@ function scaleSize(maxW, maxH, currW, currH){
 	//alert(currW + " " + currH);
 	return [currW, currH];
 }
+//-------------------------------------------------------------
 
 
-function gameCanvasClick(e)
-{
-	ctx.clearRect(0, 0, 512, 512);									//clear screen from top left to bottom right
-}//end of gameCanvasClick
+//-------------------------------------------------------------
+// Piece Click Function
+//-------------------------------------------------------------
+function pieceClick(event){	
+	//event.target.parentNode.style.left = "0px";
+	//event.target.parentNode.style.top = "900px";
+}
+//-------------------------------------------------------------
+
+//-------------------------------------------------------------
+// Piece Release Function
+//-------------------------------------------------------------
+function pieceRelease(event){	
+	//event.target.parentNode.style.left = "0px";
+	//event.target.parentNode.style.top = "900px";
+	var clicked_piece;
+	//alert(pieces.length);
+	// if distance (left) < some standard AND distance (top) < some standard, snap to the initial location
+	for(var i = 0;i<pieces.length;i++)
+	{
+		//alert("piece");
+		if(pieces[i].object == event.target.parentNode.firstChild)
+		{
+			clicked_piece = pieces[i];
+			//alert("true");
+		}
+	}
+	//alert(parseInt(event.target.parentNode.style.left,10) + ' ' + parseInt(event.target.parentNode.style.top,10));
+	
+	if(Math.abs(parseInt(event.target.parentNode.style.left,10)) < SNAP_DISTANCE && Math.abs(parseInt(event.target.parentNode.style.top,10)) < SNAP_DISTANCE)
+	{
+		//alert("snap");
+		event.target.parentNode.style.left = 0;
+		event.target.parentNode.style.top = 0;
+	}
+}
+//-------------------------------------------------------------
