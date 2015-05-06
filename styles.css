@@ -26,6 +26,11 @@ body {
 	position: fixed;
 }
 
+#image_selection {
+	display: block;
+	position: relative;
+}
+
 #image_chosen_div {
 	display: block;
 	margin: 0 auto;
@@ -35,6 +40,29 @@ body {
 
 #chosen_image {
 	
+}
+
+#image_select_button_container {
+	width: 40%;
+	margin: 10 auto;
+	display: block;
+	height: 60px;
+}
+
+#image_select_button_div {
+	margin: 0 auto;
+	line-height: 50px;
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+
+#previous_button {
+	width: 30%;
+}
+
+#next_button {
+	width: 30%;
 }
 
 #game_selection_form {
@@ -96,26 +124,31 @@ input[type=radio] + label {
     display: inline-block;
 	width: 100%;
 	height: 50px;
-    background-color: #8adcc3;
+    background-color: #8ac3dc;
 }
 
 input[type=radio]:checked + label { 
-    background-color: #3cc49b;
+    background-color: #3c9bc4;
+	color: #ffffff;
 }
 
 .button_class {
 	font: 16px sans-serif;
 	color: #666666;
-	display: inline-block;
-	width: 25%;
+	display: inline-block;	
 	height: 50px;
-    background-color: #8adcc3;
+    background-color: #8ac3dc;
 	margin: 0 auto;
-	border: none;
+	border: 0px;
+	padding: 0px;
 }
 
 .button_class:active {
-	background-color: #3cc49b;
+	background-color: #3c9bc4;
+}
+
+#start_button {
+	width: 25%;
 }
 /****************************/
 /****************************/

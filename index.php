@@ -14,18 +14,24 @@
 			//include_once("navigation.php");
 			
 		?>
-		<!-- Comment this out for now... lets try div-ception first...
-		<canvas id="gameCanvas"">
-		</canvas> -->
-		
 		
 		<div id="game_selection">
 			
-			<div id="image_chosen_div">
-				<img id="chosen_image" src="jellyfish.jpg" alt=""/>
-			</div>
+			
 			
 			<div id="image_selection">
+			
+				<div id="image_chosen_div">
+					<img id="chosen_image" src="jellyfish.jpg" alt="image"/>
+				</div>
+				
+				<div id="image_select_button_container">
+					<div id="image_select_button_div">
+						<button type="button" class="button_class" id="previous_button">Previous</button>
+						<button type="button" class="button_class" id="next_button">Next</button>
+					</div>
+				</div>
+					
 			</div>
 			
 			<div id="game_selection_form">
