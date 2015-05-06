@@ -210,10 +210,12 @@ function startGame()
 	}
 	
 	// do something based on the game mode selected (show a timer or don't)
+	if ($("input[name=radio]:checked").val()==1)//if timer checked
 	{
 		//setup timer function to countdown every second
 		setInterval(function () {
 			current_time--;//change time
+			document.getElementById("timer").innerHTML = current_time;
 		}, 1000);//every 1000 milliseconds
 	}
 	// cut up the image

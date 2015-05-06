@@ -76,6 +76,7 @@
 		<!-- The game board itself... think divs within divs, the inner divs are all displaying part of the image and are moveable and will snap -->
 		<div id="gameboard">
 		</div>
+		<div id="timer" contenteditable="true">
 		</div>
 		
 		
