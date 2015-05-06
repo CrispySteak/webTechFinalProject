@@ -42,8 +42,6 @@ var pieces = [];
 var imagesArray = ["jellyfish.jpg","tree.jpg"];
 var current_image = 0;
 
-// win variable
-var correct_placed = 0;
 
 //-------------------------------------------------------------
 // Document Ready Function
@@ -57,105 +55,13 @@ $(document).ready(function(){
 	//-------------------------------------------------------------
 	// handler for the "Start!" button
 	//-------------------------------------------------------------
-	$("#start_button").click(function() {
-		$("#game_selection").fadeOut(400);
-		
-		// set the image properties based on the selected image
-		selectedImage.source = document.getElementById("chosen_image").src;
-		selectedImage.width = document.getElementById("chosen_image").naturalWidth;
-		selectedImage.height = document.getElementById("chosen_image").naturalHeight;
-		
-		// adjust the image to a proper size
-		var newSize = scaleSize(board.width,board.height,selectedImage.width,selectedImage.height);
-		
-		selectedImage.width = newSize[0];
-		selectedImage.height = newSize[1];
-		
-		// set board to aspect ratio
-		board.width = selectedImage.width;
-		board.height = selectedImage.height;
-		
-		$("#gameboard").width(board.width);
-		$("#gameboard").height(board.height);
-
-		// set the rows/columns based on the difficulty
-		var difficulty = $("input[name=radio1]:checked").val();
-		
-		if(difficulty == 0)
-		{
-			board.rows = 3;
-			board.columns = 3;
-		}
-		else if(difficulty == 1)
-		{
-			board.rows = 5;
-			board.columns = 5;
-		}
-		else if(difficulty == 2)
-		{
-			board.rows = 7;
-			board.columns = 7;
-		}
-		else if(difficulty == 3)
-		{
-			board.rows = 9;
-			board.columns = 9;
-		}
-		
-		// do something based on the game mode selected (show a timer or don't)
-		
-		// cut up the image
-		for(var i = 0;i<board.rows;i++)
-		{
-			for(var j = 0;j<board.columns;j++)
-			{
-				
-				// the div that contains the image
-				var newDiv = document.createElement("div");
-				newDiv.className = "piece_div_class";
-				newDiv.id = "piece_div" + ((i * board.rows) + j);
-				newDiv.width = board.width / board.columns;
-				newDiv.height = board.height / board.rows;
-				
-				document.getElementById("gameboard").appendChild(newDiv);
-				
-				// the image to put in the div (with the correct offset applied
-				var newImage = document.createElement("img");
-				newImage.className = "piece_image_class";
-				newImage.id = "piece_image" + ((i * board.rows) + j);
-				
-				newImage.src = selectedImage.source;
-				newImage.width = selectedImage.width;
-				newImage.height = selectedImage.height;
-				
-				newDiv.appendChild(newImage);
-				
-				// set the css of the specific piece
-				$("#piece_image" + ((i * board.rows) + j)).css({"position":"absolute",
-					"left":"-" + Math.floor((newDiv.width * j)) + "px",
-					"top":"-" + Math.floor((newDiv.height * i)) + "px"});
-				
-				// set the click listener for the piece
-				$("#piece_image" + ((i * board.rows) + j)).mouseup(pieceRelease);
-				//$("#piece_image" + ((i * board.rows) + j)).click(pieceClicked);
-				
-				// add the piece to the array of pieces
-				var tempPiece = new PuzzlePiece(j,i,newImage);
-				pieces.push(tempPiece);
-			}
-		}
-		
-		$(".piece_div_class").width(board.width/board.columns);
-		$(".piece_div_class").height(board.height/board.rows);
-		$(".piece_div_class").draggable();
-		$("#gameboard").delay(400).fadeIn(400);
-		
-	}); // end Start! button handler
-	//-------------------------------------------------------------
+	$("#start_button").click(startGame);
 });
 //-------------------------------------------------------------
 
-
+//-------------------------------------------------------------
+// Function to set up window
+//-------------------------------------------------------------
 function setupWindow()
 {
 	$("#gameboard").hide();
@@ -173,6 +79,7 @@ function setupWindow()
 	$("#chosen_image").show();
 	//alert(document.getElementById("chosen_image").naturalWidth);
 }
+//-------------------------------------------------------------
 
 //-------------------------------------------------------------
 // Function to scale the image size to the board size
@@ -180,7 +87,6 @@ function setupWindow()
 function scaleSize(maxW, maxH, currW, currH){
 
 	var ratio = currH / currW;
-	//alert(currW + " " + currH);
 	if(currW >= maxW && ratio <= 1){
 		currW = maxW;
 		currH = currW * ratio;
@@ -192,14 +98,12 @@ function scaleSize(maxW, maxH, currW, currH){
 			currW = currH / ratio;
 		}
 	}
-	//alert(currW + " " + currH);
 	return [currW, currH];
 }
 //-------------------------------------------------------------
 
-
 //-------------------------------------------------------------
-// Piece Click Function
+// Next Image Function
 //-------------------------------------------------------------
 function nextImage(event){	
 	
@@ -213,16 +117,6 @@ function nextImage(event){
 	$("#chosen_image").height(chooseSize[1]);
 }
 //-------------------------------------------------------------
-
-
-//-------------------------------------------------------------
-// Piece Clicked Function
-//-------------------------------------------------------------
-function pieceClicked(event){	
-	correct_placed -= 1;
-}
-//-------------------------------------------------------------
-
 
 //-------------------------------------------------------------
 // Piece Release Function
@@ -248,7 +142,6 @@ function pieceRelease(event){
 //-------------------------------------------------------------
 function checkWinner()
 {
-	
 	for(var i = 1;i < document.getElementById("gameboard").childNodes.length; i++)
 	{
 		if(parseInt(document.getElementById("gameboard").childNodes[i].style.left,10) != 0 || parseInt(document.getElementById("gameboard").childNodes[i].style.top,10) != 0)
@@ -258,5 +151,104 @@ function checkWinner()
 	}
 	
 	return true;
+}
+//-------------------------------------------------------------
+
+//-------------------------------------------------------------
+// Function to start the game
+//-------------------------------------------------------------
+function startGame() 
+{
+	$("#game_selection").fadeOut(400);
+	
+	// set the image properties based on the selected image
+	selectedImage.source = document.getElementById("chosen_image").src;
+	selectedImage.width = document.getElementById("chosen_image").naturalWidth;
+	selectedImage.height = document.getElementById("chosen_image").naturalHeight;
+	
+	// adjust the image to a proper size
+	var newSize = scaleSize(board.width,board.height,selectedImage.width,selectedImage.height);
+	
+	selectedImage.width = newSize[0];
+	selectedImage.height = newSize[1];
+	
+	// set board to aspect ratio
+	board.width = selectedImage.width;
+	board.height = selectedImage.height;
+	
+	$("#gameboard").width(board.width);
+	$("#gameboard").height(board.height);
+
+	// set the rows/columns based on the difficulty
+	var difficulty = $("input[name=radio1]:checked").val();
+	
+	if(difficulty == 0)
+	{
+		board.rows = 3;
+		board.columns = 3;
+	}
+	else if(difficulty == 1)
+	{
+		board.rows = 5;
+		board.columns = 5;
+	}
+	else if(difficulty == 2)
+	{
+		board.rows = 7;
+		board.columns = 7;
+	}
+	else if(difficulty == 3)
+	{
+		board.rows = 9;
+		board.columns = 9;
+	}
+	
+	// do something based on the game mode selected (show a timer or don't)
+	
+	// cut up the image
+	for(var i = 0;i<board.rows;i++)
+	{
+		for(var j = 0;j<board.columns;j++)
+		{
+			
+			// the div that contains the image
+			var newDiv = document.createElement("div");
+			newDiv.className = "piece_div_class";
+			newDiv.id = "piece_div" + ((i * board.rows) + j);
+			newDiv.width = board.width / board.columns;
+			newDiv.height = board.height / board.rows;
+			
+			document.getElementById("gameboard").appendChild(newDiv);
+			
+			// the image to put in the div (with the correct offset applied
+			var newImage = document.createElement("img");
+			newImage.className = "piece_image_class";
+			newImage.id = "piece_image" + ((i * board.rows) + j);
+			
+			newImage.src = selectedImage.source;
+			newImage.width = selectedImage.width;
+			newImage.height = selectedImage.height;
+			
+			newDiv.appendChild(newImage);
+			
+			// set the css of the specific piece
+			$("#piece_image" + ((i * board.rows) + j)).css({"position":"absolute",
+				"left":"-" + Math.floor((newDiv.width * j)) + "px",
+				"top":"-" + Math.floor((newDiv.height * i)) + "px"});
+			
+			// set the click listener for the piece
+			$("#piece_image" + ((i * board.rows) + j)).mouseup(pieceRelease);
+			
+			// add the piece to the array of pieces
+			var tempPiece = new PuzzlePiece(j,i,newImage);
+			pieces.push(tempPiece);
+		}
+	}
+	
+	$(".piece_div_class").width(board.width/board.columns);
+	$(".piece_div_class").height(board.height/board.rows);
+	$(".piece_div_class").draggable();
+	$("#gameboard").delay(400).fadeIn(400);
+	
 }
 //-------------------------------------------------------------
