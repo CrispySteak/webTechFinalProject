@@ -26,21 +26,24 @@ var selectedImage = {
 	height	: 0
 }
 
+
+// PuzzlePiece Object
 function PuzzlePiece(in_row,in_column,in_object)
 {
-	
 	this.x = in_row;
 	this.y = in_column;
-	
-	this.object = in_object;
-	
+	this.object = in_object;	
 }
 
 // the array of pieces
 var pieces = [];
 
+// images to choose from
 var imagesArray = ["jellyfish.jpg","tree.jpg"];
 var current_image = 0;
+
+// win variable
+var correct_placed = 0;
 
 //-------------------------------------------------------------
 // Document Ready Function
@@ -132,9 +135,9 @@ $(document).ready(function(){
 					"left":"-" + Math.floor((newDiv.width * j)) + "px",
 					"top":"-" + Math.floor((newDiv.height * i)) + "px"});
 				
-				
 				// set the click listener for the piece
 				$("#piece_image" + ((i * board.rows) + j)).mouseup(pieceRelease);
+				//$("#piece_image" + ((i * board.rows) + j)).click(pieceClicked);
 				
 				// add the piece to the array of pieces
 				var tempPiece = new PuzzlePiece(j,i,newImage);
@@ -211,31 +214,49 @@ function nextImage(event){
 }
 //-------------------------------------------------------------
 
+
+//-------------------------------------------------------------
+// Piece Clicked Function
+//-------------------------------------------------------------
+function pieceClicked(event){	
+	correct_placed -= 1;
+}
+//-------------------------------------------------------------
+
+
 //-------------------------------------------------------------
 // Piece Release Function
 //-------------------------------------------------------------
 function pieceRelease(event){	
-	//event.target.parentNode.style.left = "0px";
-	//event.target.parentNode.style.top = "900px";
-	var clicked_piece;
-	//alert(pieces.length);
-	// if distance (left) < some standard AND distance (top) < some standard, snap to the initial location
-	for(var i = 0;i<pieces.length;i++)
-	{
-		//alert("piece");
-		if(pieces[i].object == event.target.parentNode.firstChild)
-		{
-			clicked_piece = pieces[i];
-			//alert("true");
-		}
-	}
-	//alert(parseInt(event.target.parentNode.style.left,10) + ' ' + parseInt(event.target.parentNode.style.top,10));
 	
 	if(Math.abs(parseInt(event.target.parentNode.style.left,10)) < SNAP_DISTANCE && Math.abs(parseInt(event.target.parentNode.style.top,10)) < SNAP_DISTANCE)
 	{
-		//alert("snap");
 		event.target.parentNode.style.left = 0;
 		event.target.parentNode.style.top = 0;
 	}
+	
+	if(checkWinner())
+	{
+		// WINNER
+		alert("Winner!");
+	}
+}
+//-------------------------------------------------------------
+
+//-------------------------------------------------------------
+// Function to check the winner
+//-------------------------------------------------------------
+function checkWinner()
+{
+	
+	for(var i = 1;i < document.getElementById("gameboard").childNodes.length; i++)
+	{
+		if(parseInt(document.getElementById("gameboard").childNodes[i].style.left,10) != 0 || parseInt(document.getElementById("gameboard").childNodes[i].style.top,10) != 0)
+		{
+			return false;
+		}
+	}
+	
+	return true;
 }
 //-------------------------------------------------------------
