@@ -186,11 +186,13 @@ function startGame()
 	{
 		board.rows = 3;
 		board.columns = 3;
+		SNAP_DISTANCE=50;
 	}
 	else if(difficulty == 1)
 	{
 		board.rows = 5;
 		board.columns = 5;
+		SNAP_DISTANCE=30;
 	}
 	else if(difficulty == 2)
 	{
