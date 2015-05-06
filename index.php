@@ -16,9 +16,7 @@
 		?>
 		
 		<div id="game_selection">
-			
-			
-			
+		
 			<div id="image_selection">
 			
 				<div id="image_chosen_div">
@@ -77,6 +75,15 @@
 				</div>
 			</div>
 			
+		</div>
+		
+		<div id="win_screen">
+			<h1 id="win_header"></h1>
+			<div id="win_button_container">
+				<div id="win_button_div">
+					<button type="button" class="button_class" id="win_button">Play Again!</button>
+				</div>
+			</div>
 		</div>
 		
 		<!-- The game board itself... think divs within divs, the inner divs are all displaying part of the image and are moveable and will snap -->

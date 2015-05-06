@@ -23,7 +23,8 @@ body {
 	background-color: rgba(0,0,0,.9);
 	margin: 0 auto;
 	padding: 10px;
-	position: fixed;
+	padding-top: 40px;
+	position: absolute;
 	z-index: 1000;
 	left: 0;
 	top: 0;
@@ -152,6 +153,43 @@ input[type=radio]:checked + label {
 
 #start_button {
 	width: 25%;
+}
+
+#win_screen {
+	display: block;
+	background-color: rgba(0,0,0,.9);
+	margin: 0 auto;
+	padding: 10px;
+	padding-top: 40px;
+	position: absolute;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+}
+
+#win_header {
+	text-align: center;
+	font: 150px sans-serif;
+	color: #8ac3dc;
+}
+
+#win_button_container {
+	width: 40%;
+	margin: 10 auto;
+	display: block;
+	height: 60px;
+}
+
+#win_button_div {
+	margin: 0 auto;
+	line-height: 50px;
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+
+#win_button {
+	width: 50%;
 }
 /****************************/
 /****************************/

@@ -52,6 +52,7 @@ var current_image = 0;
 //-------------------------------------------------------------
 $(document).ready(function(){
 	
+	$("#win_screen").hide();
 	//$("#chosen_image").hide();
 	$("#gameboard").width(board.width);
 	$("#gameboard").height(board.height);
@@ -62,6 +63,9 @@ $(document).ready(function(){
 	// handler for the "Start!" button
 	//-------------------------------------------------------------
 	$("#start_button").click(startGame);
+	$("#previous_button").click(previousImage);
+	$("#next_button").click(nextImage);
+	$("#win_button").click(restartGame);
 	//-------------------------------------------------------------
 });
 //-------------------------------------------------------------
@@ -83,18 +87,16 @@ function setupImageChoices()
 //-------------------------------------------------------------
 function setupWindow()
 {
-	//$("#gameboard").hide();
-	
-	//$("#chosen_image").attr('src',imagesArray[1]);
 	// adjust the image to a proper size
-	//alert(document.getElementById("chosen_image").naturalWidth);
 	var chooseSize = scaleSize(CHOOSE_WIDTH,CHOOSE_HEIGHT,document.getElementById("chosen_image").naturalWidth,document.getElementById("chosen_image").naturalHeight);
 	$("#image_chosen_div").width(chooseSize[0]);
 	$("#image_chosen_div").height(chooseSize[1]);
 	$("#chosen_image").width(chooseSize[0]);
 	$("#chosen_image").height(chooseSize[1]);
-	$("#game_selection").height($(window).height() - 20);
+	$("#game_selection").height($(window).height() - 50);
 	$("#game_selection").width($(window).width() - 20);
+	$("#win_screen").height($(window).height() - 50);
+	$("#win_screen").width($(window).width() - 20);
 	//$("#chosen_image").show();
 	//alert(document.getElementById("chosen_image").naturalWidth);
 }
@@ -126,8 +128,34 @@ function scaleSize(maxW, maxH, currW, currH){
 //-------------------------------------------------------------
 function nextImage(event){	
 	
+	$("#chosen_image").remove();
 	current_image = ( current_image + 1 ) % imagesArray.length;
-	$("#chosen_image").attr("src",imagesArray[current_image]);
+	
+	showNewImage();
+	
+}
+//-------------------------------------------------------------
+
+//-------------------------------------------------------------
+// Previous Image Function
+//-------------------------------------------------------------
+function previousImage(event){	
+	
+	$("#chosen_image").remove();
+	current_image = ( current_image - 1 ) % imagesArray.length;
+	
+	showNewImage();
+	
+}
+//-------------------------------------------------------------
+
+function showNewImage()
+{
+	var newImage = document.createElement("img");
+	newImage.src = imagesArray[current_image];
+	newImage.id = "chosen_image";
+	
+	document.getElementById("image_chosen_div").appendChild(newImage);
 	
 	var chooseSize = scaleSize(CHOOSE_WIDTH,CHOOSE_HEIGHT,document.getElementById("chosen_image").naturalWidth,document.getElementById("chosen_image").naturalHeight);
 	$("#image_chosen_div").width(chooseSize[0]);
@@ -135,8 +163,6 @@ function nextImage(event){
 	$("#chosen_image").width(chooseSize[0]);
 	$("#chosen_image").height(chooseSize[1]);
 }
-//-------------------------------------------------------------
-
 //-------------------------------------------------------------
 // Piece Release Function
 //-------------------------------------------------------------
@@ -151,7 +177,8 @@ function pieceRelease(event){
 	if(checkWinner())
 	{
 		// WINNER
-		alert("Winner!");
+		document.getElementById("win_header").innerHTML = "Nice Job!";
+		$("#win_screen").fadeIn(500);
 	}
 }
 //-------------------------------------------------------------
@@ -301,3 +328,14 @@ function shuffle()
 	}
 }
 //-------------------------------------------------------------
+
+function restartGame()
+{
+	for(var i = 0;i < board.rows*board.columns; i++)
+	{
+		$("#piece_div" + i).remove();
+	}
+	
+	$("#win_screen").fadeOut(250);
+	$("#game_selection").delay(250).fadeIn(250);
+}
