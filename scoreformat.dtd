@@ -1,5 +1,6 @@
 <!DOCTYPE highscores
 [
+<!ELEMENT list(score*)>
 <!ELEMENT score (username,difficulty,time)>
 <!ELEMENT username (#PCDATA)>
 <!ELEMENT difficulty (#PCDATA)>

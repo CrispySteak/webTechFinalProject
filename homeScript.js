@@ -6,7 +6,8 @@ var gameCanvas;			//canvas element
 var ctx;				//canvas context
 
 
-var current_time=60;
+var current_time=0;
+var timer;
 
 var BOARD_MAX_WIDTH = 800;
 var BOARD_MAX_HEIGHT = 600;
@@ -183,6 +184,9 @@ function pieceRelease(event){
 	if(checkWinner())
 	{
 		// WINNER
+		clearInterval(timer);//stop the timer
+		document.getElementById("timer").innerHTML ="";					//stop displaying timer here as it should be on the win screen anyways
+		document.getElementById("time_value").innerHTML = current_time;
 		document.getElementById("win_header").innerHTML = "Nice Job!";
 		$("#win_screen").fadeIn(500);
 	}
@@ -261,8 +265,8 @@ function startGame()
 	if ($("input[name=radio]:checked").val()==1)//if timer checked
 	{
 		//setup timer function to countdown every second
-		setInterval(function () {
-			current_time--;//change time
+		timer=setInterval(function () {
+			current_time++;//change time
 			document.getElementById("timer").innerHTML = current_time;
 		}, 1000);//every 1000 milliseconds
 	}
@@ -344,4 +348,5 @@ function restartGame()
 	
 	$("#win_screen").fadeOut(250);
 	$("#game_selection").delay(250).fadeIn(250);
+	current_time=0;//reset the time
 }
