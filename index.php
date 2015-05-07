@@ -18,11 +18,12 @@
 		<div id="game_selection">
 		
 			<div id="image_selection">
-			
-				<div id="image_chosen_div">
-					<img id="chosen_image" src="jellyfish.jpg" alt="image"/>
+				<div id="image_chooser_wrapper">
+					<div id="image_chosen_div">
+						<img id="chosen_image" src="jellyfish.jpg" alt="image"/>
+					</div>
 				</div>
-				
+		
 				<div id="image_select_button_container">
 					<div id="image_select_button_div">
 						<button type="button" class="button_class" id="previous_button">Previous</button>

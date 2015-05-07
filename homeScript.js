@@ -43,7 +43,7 @@ function PuzzlePiece(in_row,in_column,in_object)
 var pieces = [];
 
 // images to choose from
-var imagesArray = ["jellyfish.jpg","tree.jpg"];
+var imagesArray = ["jellyfish.jpg","tree.jpg","IMG_1627.jpg","gto.jpg","city.jpg","cat.jpg"];
 var current_image = 0;
 
 
@@ -91,6 +91,8 @@ function setupWindow()
 	var chooseSize = scaleSize(CHOOSE_WIDTH,CHOOSE_HEIGHT,document.getElementById("chosen_image").naturalWidth,document.getElementById("chosen_image").naturalHeight);
 	$("#image_chosen_div").width(chooseSize[0]);
 	$("#image_chosen_div").height(chooseSize[1]);
+	$("#image_chooser_wrapper").width(CHOOSE_WIDTH + 6);
+	$("#image_chooser_wrapper").height(CHOOSE_HEIGHT + 6);
 	$("#chosen_image").width(chooseSize[0]);
 	$("#chosen_image").height(chooseSize[1]);
 	$("#game_selection").height($(window).height() - 50);
@@ -142,6 +144,10 @@ function nextImage(event){
 function previousImage(event){	
 	
 	$("#chosen_image").remove();
+	
+	if(current_image == 0)
+		current_image = imagesArray.length;
+	
 	current_image = ( current_image - 1 ) % imagesArray.length;
 	
 	showNewImage();
