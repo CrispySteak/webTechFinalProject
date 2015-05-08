@@ -434,7 +434,7 @@ function showLeaderboard()
 	
 	
 	//note that leaderboardXML is a XML DOM object
-	var imageArray=leaderboardXML.getElementsByTagName('imgname');
+	var imageArray=leaderboardXML.getElementsByTagName('imgname');//get root
 	var currentImageXML;
 	for (var i=0;i<imageArray.length;i++)//determine the image
 	{
@@ -445,7 +445,7 @@ function showLeaderboard()
 	}//end of for
 	//determine the difficulty node
 	var difficulty = currentImageXML.parentNode.getElementsByTagName(difficultyName);
-	var outputHTML="<table>";
+	var outputHTML="<table> <tr> <td>Username</td> <td>Score</td> </tr>";
 	var members=difficulty[0].childNodes;
 	for(var i=1; i<13;i=i+2)//6 is the number of xml members (member0,member1...) 13 is because of some weird text nodes
 	{
@@ -453,11 +453,10 @@ function showLeaderboard()
 		outputHTML += members[i].childNodes[0].textContent;
 		outputHTML += "</td>"+"<td>";
 		outputHTML +=  members[i].childNodes[1].textContent;
-		outputHTML += "</td>"+"<\tr>";
+		outputHTML += "</td>"+"</tr>";
 	}
 	outputHTML+= "</table>";
-	$("#highscore_table").innerHTML=outputHTML;
-	
+	document.getElementById("highscore_table").innerHTML= outputHTML;
 	
 	fadeSplash();
 	$("#win_screen").fadeOut(250);
