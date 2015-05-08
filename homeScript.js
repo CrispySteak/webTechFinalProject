@@ -69,9 +69,9 @@ $(document).ready(function(){
 	$("#next_button").click(nextImage);
 	$("#win_button").click(restartGame);
 	$("#enter_button").click(fadeSplash);
-	$("#leaderboard_button").click(showLeaderboard);
+	$("#leaderboard_button").click(function(){showLeaderboard();fadeBoard();});
 	$("#return_button").click(function(){$("#highscore_container").fadeOut(400);});
-	$("#leaderboard_button_endgame").click(showLeaderboard);
+	$("#leaderboard_button_endgame").click(fadeBoard);
 	//-------------------------------------------------------------
 });
 //-------------------------------------------------------------
@@ -118,6 +118,12 @@ function setupWindow()
 	$("#splash_image").width(chooseSize[0]);
 	$("#splash_image").height(chooseSize[1]);
 	
+	
+	for(var i = 0;i<imagesArray.length;i++)
+	{
+		nextImage();
+	}
+	
 	//make ajax xmlhttprequest for leaderboard_button
 	var request= new XMLHttpRequest();
 	request.onreadystatechange=function()
@@ -160,7 +166,7 @@ function scaleSize(maxW, maxH, currW, currH){
 //-------------------------------------------------------------
 // Next Image Function
 //-------------------------------------------------------------
-function nextImage(event){	
+function nextImage(){	
 	
 	$("#chosen_image").remove();
 	current_image = ( current_image + 1 ) % imagesArray.length;
@@ -173,7 +179,7 @@ function nextImage(event){
 //-------------------------------------------------------------
 // Previous Image Function
 //-------------------------------------------------------------
-function previousImage(event){	
+function previousImage(){	
 	
 	$("#chosen_image").remove();
 	
@@ -448,14 +454,14 @@ function showLeaderboard()
 	}//end of for
 	//determine the difficulty node
 	var difficulty = currentImageXML.parentNode.getElementsByTagName(difficultyName);
-	var outputHTML="<table> <tr> <td>Username</td> <td>Score</td> </tr>";
+	var outputHTML="<table> <tr> <td>Username</td> <td class=\"score_class\">Score</td> </tr>";
 	var members=difficulty[0].childNodes;
 	var scores=[];
 	for(var i=1; i<13;i=i+2)//6 is the number of xml members (member0,member1...) 13 is because of some weird text nodes
 	{
 		outputHTML +=  "<tr>"+"<td>";
 		outputHTML += members[i].childNodes[1].textContent;
-		outputHTML += "</td>"+"<td>";
+		outputHTML += "</td>"+"<td class=\"score_class\">";
 		outputHTML +=  members[i].childNodes[3].textContent;
 		outputHTML += "</td>"+"</tr>";
 		scores.push(members[i].childNodes[3].textContent);
@@ -481,5 +487,10 @@ function showLeaderboard()
 	fadeSplash();
 	//$("#win_screen").fadeOut(250);
 	//$("#game_selection").fadeOut(250);
+	
+}
+
+function fadeBoard()
+{
 	$("#highscore_container").fadeIn(250);
 }
