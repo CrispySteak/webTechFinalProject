@@ -11,6 +11,8 @@ var timer;
 
 var leaderboardXML;
 
+var difficultyName;
+
 var BOARD_MAX_WIDTH = 800;
 var BOARD_MAX_HEIGHT = 600;
 
@@ -72,6 +74,7 @@ $(document).ready(function(){
 	$("#leaderboard_button").click(showLeaderboard);
 	$("#return_button").click(restartGame);
 	$("#leaderboard_button_endgame").click(showLeaderboard);
+	$("submit_score_button").click(submit);
 	//-------------------------------------------------------------
 });
 //-------------------------------------------------------------
@@ -411,7 +414,7 @@ function showLeaderboard()
 	//var difficultys = response.getElementsByTagName('difficulty')[0].firstChild.data;
 	//get current image and query xml for the relevent <img><imgname>...</..
 	var currentDifficulty = $("input[name=radio1]:checked").val(); //get the difficulty the user has selected
-	var difficultyName;
+	
 	
 	switch (currentDifficulty) 
 	{
@@ -479,4 +482,16 @@ function showLeaderboard()
 	$("#win_screen").fadeOut(250);
 	$("#game_selection").fadeOut(250);
 	$("#highscore_container").delay(250).fadeIn(250);
+}
+
+
+function submit()
+{
+	request = new XMLHttpRequest();
+	var tosend ="image="+imagesArray[current_image].textContent+"&username="+$("#text_input")+"&score="+current_time+"&difficulty="+difficultyName;
+		request.onreadystatechange=function(){
+			
+		}
+		request.open("POST","submitScore.php",true);
+		request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 }
