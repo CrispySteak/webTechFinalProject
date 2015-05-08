@@ -445,7 +445,17 @@ function showLeaderboard()
 	}//end of for
 	//determine the difficulty node
 	var difficulty = currentImageXML.parentNode.getElementsByTagName(difficultyName);
-	
+	var outputHTML="<table>";
+	var members=difficulty[0].childNodes;
+	for(var i=1; i<13;i=i+2)//6 is the number of xml members (member0,member1...) 13 is because of some weird text nodes
+	{
+		ouputHTML = outputHTML + "<tr>"+"<td>";
+		ouputHTML = outputHTML + members[i].childNodes[0].textContent;
+		ouputHTML = outputHTML +"</td>"+"<td>";
+		ouputHTML = outputHTML + members[i].childNodes[1].textContent;
+		ouputHTML = outputHTML +"</td>"+"<\tr>";
+	}
+	outputHTML=outputHTML+ "</table>";
 	
 	
 	fadeSplash();
