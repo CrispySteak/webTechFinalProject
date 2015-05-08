@@ -249,7 +249,7 @@ input[type=radio]:checked + label {
 #highscore_header {
 	text-align: center;
 	font: 40px sans-serif;
-	color: #8ac3dc;
+	color: #eeeeee;
 }
 
 #win_screen {
