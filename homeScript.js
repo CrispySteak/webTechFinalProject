@@ -67,6 +67,9 @@ $(document).ready(function(){
 	$("#next_button").click(nextImage);
 	$("#win_button").click(restartGame);
 	$("#enter_button").click(fadeSplash);
+	$("#leaderboard_button").click(showLeaderboard);
+	$("#return_button").click(restartGame);
+	$("#leaderboard_button_endgame").click(showLeaderboard);
 	//-------------------------------------------------------------
 });
 //-------------------------------------------------------------
@@ -109,6 +112,7 @@ function setupWindow()
 	$("#title_div").height(chooseSize[1]);
 	$("#splash_image").width(chooseSize[0]);
 	$("#splash_image").height(chooseSize[1]);
+	
 }
 //-------------------------------------------------------------
 
@@ -202,7 +206,6 @@ function pieceRelease(event){
 		document.getElementById("time_value").innerHTML = current_time;
 		document.getElementById("win_header").innerHTML = "Nice Job!";
 		
-		
 		if(!TIMER)
 		{
 			$("#time_value").hide();
@@ -212,13 +215,16 @@ function pieceRelease(event){
 		}
 		else
 		{
-			$("#time_value").show();
-			$("#time_label").show();
-			$("#text_input_div").show();
-			$("#submit_score_div").show();
+			//wern't doing anything
+			//$("#time_value").show();
+			//$("#time_label").show();
+			//$("#text_input_div").show();
+			//$("#submit_score_div").show();
+			showLeaderboard();
 		}
 		
 		$("#win_screen").fadeIn(500);
+		
 	}
 }
 //-------------------------------------------------------------
@@ -246,6 +252,9 @@ function checkWinner()
 function startGame() 
 {
 	$("#game_selection").fadeOut(400);
+	$("#highscore_container").hide();
+	
+	TIMER = false;	//reset the timer
 	
 	// set the image properties based on the selected image
 	selectedImage.source = document.getElementById("chosen_image").src;
@@ -301,7 +310,7 @@ function startGame()
 		}, 1000);//every 1000 milliseconds
 		
 		TIMER = true;
-	}
+	}//end of if
 	// cut up the image
 	for(var i = 0;i<board.rows;i++)
 	{
@@ -379,6 +388,15 @@ function restartGame()
 	}
 	
 	$("#win_screen").fadeOut(250);
+	$("#highscore_container").fadeOut(250);
 	$("#game_selection").delay(250).fadeIn(250);
 	current_time=0;//reset the time
+}
+
+function showLeaderboard()
+{
+	fadeSplash();
+	$("#win_screen").fadeOut(250);
+	$("#game_selection").fadeOut(250);
+	$("#highscore_container").delay(250).fadeIn(250);
 }
