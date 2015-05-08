@@ -81,16 +81,18 @@
 		<div id="win_screen">
 			<h1 id="win_header"></h1>
 			<div id="highscore_container">
+				<div id="highscore_list">
+				</div>
 				<div id="time_label">
 					Time:
 				</div>
 				<div id="time_value">
 				</div>
-				<div class="text_input_div">
+				<div id="text_input_div">
 					<input type="text" name="username" value="Name"/>
 				</div>
-				<div id="submit_score_div>
-						<button type="button" class="button_class" id="submit_score_button">Submit</button>
+				<div id="submit_score_div">
+					<button type="button" class="button_class" id="submit_score_button">Submit</button>
 				</div>
 			</div>
 			<div id="win_button_container">
@@ -105,8 +107,6 @@
 		</div>
 		<div id="timer" contenteditable="true">
 		</div>
-		
-		
 	</body>
 
 </html>

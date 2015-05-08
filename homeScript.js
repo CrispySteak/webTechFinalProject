@@ -1,11 +1,6 @@
 // homeScript.js
 // This is the JavaScript file for the homepage
 
-//Shitty global variables
-var gameCanvas;			//canvas element
-var ctx;				//canvas context
-
-
 var current_time=0;
 var timer;
 
@@ -67,7 +62,28 @@ $(document).ready(function(){
 	$("#previous_button").click(previousImage);
 	$("#next_button").click(nextImage);
 	$("#win_button").click(restartGame);
+	$("#submit_score_button").click(submitScore);
 	//-------------------------------------------------------------
+	//begin a request
+	var request = new XMLHttpRequest();
+		request.open("GET", "highscores.xml", true);
+		request.send(null); 
+		request.onreadystatechange = function() { 
+			if (request.readyState == 4)
+			{
+				//parse to determine if user is in top 10
+				
+				
+				//$("#text_input_div").hide();
+				//$("#submit_score_div").hide();
+				//$("#highscore_list").innerHTML =
+				var response = request.responseXML.documentElement;
+				var usernames = response.getElementsByTagName('username')[0].firstChild.data;
+				var difficultys = response.getElementsByTagName('difficulty')[0].firstChild.data;
+				var times = response.getElementsByTagName('time')[0].firstChild.data;
+				$("#highscore_list").innerHTML = "test";
+			}
+		};
 });
 //-------------------------------------------------------------
 
@@ -186,8 +202,9 @@ function pieceRelease(event){
 		// WINNER
 		clearInterval(timer);//stop the timer
 		document.getElementById("timer").innerHTML ="";					//stop displaying timer here as it should be on the win screen anyways
-		document.getElementById("time_value").innerHTML = current_time;
+		document.getElementById("time_value").innerHTML = current_time + " seconds";
 		document.getElementById("win_header").innerHTML = "Nice Job!";
+		//load xml
 		$("#win_screen").fadeIn(500);
 	}
 }
@@ -267,7 +284,7 @@ function startGame()
 		//setup timer function to countdown every second
 		timer=setInterval(function () {
 			current_time++;//change time
-			document.getElementById("timer").innerHTML = current_time;
+			document.getElementById("timer").innerHTML = current_time +" seconds";
 		}, 1000);//every 1000 milliseconds
 	}
 	// cut up the image
@@ -348,5 +365,12 @@ function restartGame()
 	
 	$("#win_screen").fadeOut(250);
 	$("#game_selection").delay(250).fadeIn(250);
+	$("#text_input_div").show();
+	$("#submit_score_div").show();
 	current_time=0;//reset the time
 }
+
+function submitScore()
+{
+
+}//end of submitScore

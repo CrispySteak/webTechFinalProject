@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE list SYSTEM "scoreformat.dtd">
-<list>
+<list xmlns="cs.merrimack.edu"
+xmlns:xsi=" schema.xsd"
+xsi:schemaLocation="http://www.w3schools.com note.xsd">
 	<score>
-		<username> Joe</username>
+		<username>Joe</username>
 		<difficulty>Easy</difficulty>
 		<time>20</time>
+	</score>
+	<score>
+		<username>Andrew</username>
+		<difficulty>Medium</difficulty>
+		<time>41</time>
 	</score>
 </list>
