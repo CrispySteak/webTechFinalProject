@@ -3,7 +3,7 @@
 <boards>
 		
 	<image>
-		<name></name>
+		<imgname></imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -113,7 +113,7 @@
 	</image>
 
 	<image>
-		<name></name>
+		<imgname></imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -223,7 +223,7 @@
 	</image>
 
 	<image>
-		<name></name>
+		<imgname></imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -333,7 +333,7 @@
 	</image>
 
 	<image>
-		<name></name>
+		<imgname></imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -443,7 +443,7 @@
 	</image>
 
 	<image>
-		<name></name>
+		<imgname></imgname>
 		<leaderboards>
 			<easy>
 				<member0>
