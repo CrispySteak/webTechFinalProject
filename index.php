@@ -97,8 +97,6 @@
 			
 		</div>
 		<div id="highscore_container">
-			<div id="highscore_table">
-			</div>
 			<div id="time_label">
 				Time:
 			</div>
