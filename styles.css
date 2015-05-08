@@ -46,7 +46,7 @@ body {
 
 #image_chosen_div {
 	display: block;
-	margin: 0 auto;
+	margin: auto auto;
 	border: 3px solid #666666;
 	position: relative;
 }
@@ -199,6 +199,50 @@ input[type=radio]:checked + label {
 
 #win_button {
 	width: 50%;
+}
+
+
+/****************************/
+/* Highscores				*/
+/****************************/
+#highscore_container {
+	display: block;
+	width: 60%;
+	margin: 20 auto;
+}
+
+#time_label {
+	display: block;
+	margin: 10 auto;
+	text-align: center;
+	color: #8ac3dc;
+	font: 24px sans-serif;
+}
+
+#time_value {
+	display: block;
+	margin: 10 auto;
+	text-align: center;
+	color: #8ac3dc;
+	font: 24px sans-serif;
+}
+
+#text_input_div input {
+	display: block;
+	margin: 10 auto;
+	font: 24px sans-serif;
+}
+
+#submit_score_div {
+	width: 40%;
+	margin: 10 auto;
+	display: block;
+}
+
+#submit_score_button {
+	width: 50%;
+	margin: 0 auto;
+	display: block;
 }
 /****************************/
 /****************************/

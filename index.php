@@ -86,10 +86,10 @@
 				</div>
 				<div id="time_value">
 				</div>
-				<div class="text_input_div">
-					<input type="text" name="username" value="Name"/>
+				<div id="text_input_div">
+					<input type="text" name="username" placeholder="Name"/>
 				</div>
-				<div id="submit_score_div>
+				<div id="submit_score_div">
 						<button type="button" class="button_class" id="submit_score_button">Submit</button>
 				</div>
 			</div>
