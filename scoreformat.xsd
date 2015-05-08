@@ -5,224 +5,228 @@
 			<xs:element name="image">
 				<xs:complexType>
 					<xs:element name="imgname" type="xs:string"/>
-					<xs:sequence>
-						<xs:element name="easy">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="member0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member1">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member2">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member3">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member4">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member5">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="medium">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="member0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member1">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member2">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member3">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member4">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member5">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="hard">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="member0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member1">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member2">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member3">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member4">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member5">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="expert">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="member0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member1">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member2">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member3">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member4">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="member5">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
-												<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
+					<xs:element name="leaderboards">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="easy">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="member0">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member1">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member2">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member3">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member4">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member5">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="medium">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="member0">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member1">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member2">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member3">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member4">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member5">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="hard">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="member0">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member1">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member2">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member3">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member4">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member5">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="expert">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="member0">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member1">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member2">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member3">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member4">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="member5">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type = "xsd:string" minOccurs = "1" maxOccurs = "1"/>
+														<xs:element name="name" type = "xsd:integer" minOccurs = "1" maxOccurs = "1"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
 				</xs:complexType>
 			</xs:element>
 		</xs:complexType>

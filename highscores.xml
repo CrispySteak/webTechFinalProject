@@ -3,7 +3,7 @@
 <boards>
 		
 	<image>
-		<imgname></imgname>
+		<imgname>jellyfish.jpg</imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -113,7 +113,7 @@
 	</image>
 
 	<image>
-		<imgname></imgname>
+		<imgname>tree.jpg</imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -223,7 +223,7 @@
 	</image>
 
 	<image>
-		<imgname></imgname>
+		<imgname>IMG_1627.jpg</imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -333,7 +333,7 @@
 	</image>
 
 	<image>
-		<imgname></imgname>
+		<imgname>gto.jpg</imgname>
 		<leaderboards>
 			<easy>
 				<member0>
@@ -443,7 +443,117 @@
 	</image>
 
 	<image>
-		<imgname></imgname>
+		<imgname>city.jpg</imgname>
+		<leaderboards>
+			<easy>
+				<member0>
+					<name></name>
+					<score></score>
+				</member0>
+				<member1>
+					<name></name>
+					<score></score>
+				</member1>
+				<member2>
+					<name></name>
+					<score></score>
+				</member2>
+				<member3>
+					<name></name>
+					<score></score>
+				</member3>
+				<member4>
+					<name></name>
+					<score></score>
+				</member4>
+				<member5>
+					<name></name>
+					<score></score>
+				</member5>
+			</easy>
+			<medium>
+				<member0>
+					<name></name>
+					<score></score>
+				</member0>
+				<member1>
+					<name></name>
+					<score></score>
+				</member1>
+				<member2>
+					<name></name>
+					<score></score>
+				</member2>
+				<member3>
+					<name></name>
+					<score></score>
+				</member3>
+				<member4>
+					<name></name>
+					<score></score>
+				</member4>
+				<member5>
+					<name></name>
+					<score></score>
+				</member5>
+			</medium>
+			<hard>
+				<member0>
+					<name></name>
+					<score></score>
+				</member0>
+				<member1>
+					<name></name>
+					<score></score>
+				</member1>
+				<member2>
+					<name></name>
+					<score></score>
+				</member2>
+				<member3>
+					<name></name>
+					<score></score>
+				</member3>
+				<member4>
+					<name></name>
+					<score></score>
+				</member4>
+				<member5>
+					<name></name>
+					<score></score>
+				</member5>
+			</hard>
+			<expert>
+				<member0>
+					<name></name>
+					<score></score>
+				</member0>
+				<member1>
+					<name></name>
+					<score></score>
+				</member1>
+				<member2>
+					<name></name>
+					<score></score>
+				</member2>
+				<member3>
+					<name></name>
+					<score></score>
+				</member3>
+				<member4>
+					<name></name>
+					<score></score>
+				</member4>
+				<member5>
+					<name></name>
+					<score></score>
+				</member5>
+			</expert>
+		</leaderboards>
+	</image>
+	
+	<image>
+		<imgname>cat.jpg</imgname>
 		<leaderboards>
 			<easy>
 				<member0>

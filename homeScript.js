@@ -9,6 +9,8 @@ var ctx;				//canvas context
 var current_time=0;
 var timer;
 
+var leaderboardXML;
+
 var BOARD_MAX_WIDTH = 800;
 var BOARD_MAX_HEIGHT = 600;
 
@@ -113,6 +115,17 @@ function setupWindow()
 	$("#splash_image").width(chooseSize[0]);
 	$("#splash_image").height(chooseSize[1]);
 	
+	//make ajax xmlhttprequest for leaderboard_button
+	var request= new XMLHttpRequest();
+	request.onreadystatechange=function()
+	{
+		if (request.readyState==4 && request.status==200)
+		{
+			leaderboardXML=request.responseXML;
+		}//end of if
+	}//end of inline function
+	request.open("GET","highscores.xml",true);
+	request.send();
 }
 //-------------------------------------------------------------
 
@@ -395,6 +408,46 @@ function restartGame()
 
 function showLeaderboard()
 {
+	//var difficultys = response.getElementsByTagName('difficulty')[0].firstChild.data;
+	//get current image and query xml for the relevent <img><imgname>...</..
+	var currentDifficulty = $("input[name=radio1]:checked").val(); //get the difficulty the user has selected
+	var difficultyName;
+	
+	switch (currentDifficulty) 
+	{
+    case "0":
+        difficultyName="easy";
+        break;
+	case "1":
+        difficultyName="medium";
+        break;
+	case "2":
+        difficultyName="hard";
+        break;
+	case "3":
+        difficultyName="expert";
+        break;
+    default:
+        alert("error"+currentDifficulty);
+        break;
+	}
+	
+	
+	//note that leaderboardXML is a XML DOM object
+	var imageArray=leaderboardXML.getElementsByTagName('imgname');
+	var currentImageXML;
+	for (var i=0;i<imageArray.length;i++)//determine the image
+	{
+		if (imagesArray[current_image].textContent ==imageArray[i].data)
+		{
+			currentImageXML=imageArray[i];
+		}//end of if
+	}//end of for
+	//determine the difficulty node
+	var difficulty = currentImageXML.parentNode.getElementsByTagName(difficultyName);
+	
+	
+	
 	fadeSplash();
 	$("#win_screen").fadeOut(250);
 	$("#game_selection").fadeOut(250);
