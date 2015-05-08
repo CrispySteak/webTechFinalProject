@@ -14,12 +14,12 @@ body {
 	background-color: #3c9bc4;
 }
 
-#high_score_container {
+#highscore_container {
 	position: absolute;
 	left: 0;
 	top: 0;
 	background-color: #3c9bc4;
-	z-index: 10000;
+	z-index: 5000;
 	margin: 0 auto;
 	display: block;
 }
@@ -220,6 +220,17 @@ input[type=radio]:checked + label {
 	width: 25%;
 }
 
+.leaderboard_button_div {
+	width: 60%;
+	margin: 10 auto;
+	display: block;
+	height: 60px;
+}
+
+.leaderboard_button {
+	width: 25%;
+}
+
 #win_screen {
 	display: block;
 	background-color: rgba(0,0,0,.9);
@@ -296,6 +307,18 @@ input[type=radio]:checked + label {
 }
 
 #submit_score_button {
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+}
+
+#return_button_div {
+	width: 40%;
+	margin: 10 auto;
+	display: block;
+}
+
+#return_button {
 	width: 50%;
 	margin: 0 auto;
 	display: block;

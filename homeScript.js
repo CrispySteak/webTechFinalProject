@@ -93,6 +93,7 @@ function setupImageChoices()
 //-------------------------------------------------------------
 function setupWindow()
 {
+	$("#highscore_container").hide();
 	// adjust the image to a proper size
 	var chooseSize = scaleSize(CHOOSE_WIDTH,CHOOSE_HEIGHT,document.getElementById("chosen_image").naturalWidth,document.getElementById("chosen_image").naturalHeight);
 	$("#image_chosen_div").width(chooseSize[0]);
