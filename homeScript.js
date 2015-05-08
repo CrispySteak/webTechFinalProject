@@ -17,6 +17,7 @@ var CHOOSE_HEIGHT = 300;
 
 var SNAP_DISTANCE = 20;
 
+var TIMER = false;
 
 var board = {
 	rows	: 3,
@@ -54,10 +55,8 @@ var current_image = 0;
 $(document).ready(function(){
 	
 	$("#win_screen").hide();
-	//$("#chosen_image").hide();
 	$("#gameboard").width(board.width);
 	$("#gameboard").height(board.height);
-	//setupImageChoices();
 	setupWindow();	
 	
 	//-------------------------------------------------------------
@@ -104,14 +103,12 @@ function setupWindow()
 	$("#splash_screen").height($(window).height());
 	$("#splash_screen").width($(window).width());
 	
-	chooseSize = scaleSize(600,400,document.getElementById("splash_image").naturalWidth,document.getElementById("splash_image").naturalHeight);
+	chooseSize = scaleSize(800,600,document.getElementById("splash_image").naturalWidth,document.getElementById("splash_image").naturalHeight);
 	
 	$("#title_div").width(chooseSize[0]);
 	$("#title_div").height(chooseSize[1]);
 	$("#splash_image").width(chooseSize[0]);
 	$("#splash_image").height(chooseSize[1]);
-	//$("#chosen_image").show();
-	//alert(document.getElementById("chosen_image").naturalWidth);
 }
 //-------------------------------------------------------------
 
@@ -184,6 +181,8 @@ function showNewImage()
 	$("#chosen_image").width(chooseSize[0]);
 	$("#chosen_image").height(chooseSize[1]);
 }
+
+
 //-------------------------------------------------------------
 // Piece Release Function
 //-------------------------------------------------------------
@@ -202,6 +201,23 @@ function pieceRelease(event){
 		document.getElementById("timer").innerHTML ="";					//stop displaying timer here as it should be on the win screen anyways
 		document.getElementById("time_value").innerHTML = current_time;
 		document.getElementById("win_header").innerHTML = "Nice Job!";
+		
+		
+		if(!TIMER)
+		{
+			$("#time_value").hide();
+			$("#time_label").hide();
+			$("#text_input_div").hide();
+			$("#submit_score_div").hide();
+		}
+		else
+		{
+			$("#time_value").show();
+			$("#time_label").show();
+			$("#text_input_div").show();
+			$("#submit_score_div").show();
+		}
+		
 		$("#win_screen").fadeIn(500);
 	}
 }
@@ -283,6 +299,8 @@ function startGame()
 			current_time++;//change time
 			document.getElementById("timer").innerHTML = current_time;
 		}, 1000);//every 1000 milliseconds
+		
+		TIMER = true;
 	}
 	// cut up the image
 	for(var i = 0;i<board.rows;i++)
