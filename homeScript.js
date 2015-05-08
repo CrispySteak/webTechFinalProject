@@ -219,22 +219,22 @@ function pieceRelease(event){
 		document.getElementById("time_value").innerHTML = current_time;
 		document.getElementById("win_header").innerHTML = "Nice Job!";
 		
-		if(!TIMER)
+		if(!TIMER)//if the game was not timed
 		{
 			$("#time_value").hide();
 			$("#time_label").hide();
 			$("#text_input_div").hide();
 			$("#submit_score_div").hide();
-		}
+		}//end of if
 		else
 		{
-			//wern't doing anything
+			//weren't doing anything
 			//$("#time_value").show();
 			//$("#time_label").show();
 			//$("#text_input_div").show();
 			//$("#submit_score_div").show();
 			showLeaderboard();
-		}
+		}//end of else
 		
 		$("#win_screen").fadeIn(500);
 		
@@ -447,16 +447,33 @@ function showLeaderboard()
 	var difficulty = currentImageXML.parentNode.getElementsByTagName(difficultyName);
 	var outputHTML="<table> <tr> <td>Username</td> <td>Score</td> </tr>";
 	var members=difficulty[0].childNodes;
+	var scores=[];
 	for(var i=1; i<13;i=i+2)//6 is the number of xml members (member0,member1...) 13 is because of some weird text nodes
 	{
 		outputHTML +=  "<tr>"+"<td>";
-		outputHTML += members[i].childNodes[0].textContent;
+		outputHTML += members[i].childNodes[1].textContent;
 		outputHTML += "</td>"+"<td>";
-		outputHTML +=  members[i].childNodes[1].textContent;
+		outputHTML +=  members[i].childNodes[3].textContent;
 		outputHTML += "</td>"+"</tr>";
+		scores.push(members[i].childNodes[3].textContent);
 	}
 	outputHTML+= "</table>";
 	document.getElementById("highscore_table").innerHTML= outputHTML;
+	
+	//if user scored less than an existing score,no option to upload score
+	if(TIMER)
+	{
+		for (var i=0;i< scores.length;i++)
+		{
+			if(scores[i]<=current_time)
+			{
+				$("#time_value").show();
+				$("#time_label").show();
+				$("#text_input_div").show();
+				$("#submit_score_div").show();
+			}//end of if
+		}//end of for
+	}//end of else
 	
 	fadeSplash();
 	$("#win_screen").fadeOut(250);

@@ -557,12 +557,12 @@
 		<leaderboards>
 			<easy>
 				<member0>
-					<name></name>
-					<score></score>
+					<name>Joe</name>
+					<score>20</score>
 				</member0>
 				<member1>
-					<name></name>
-					<score></score>
+					<name>Andrew</name>
+					<score>21</score>
 				</member1>
 				<member2>
 					<name></name>
