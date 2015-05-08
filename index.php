@@ -15,6 +15,20 @@
 			
 		?>
 		
+		<div id="splash_screen">
+		
+			<div id="title_div">
+				<img id="splash_image" src="solver.png" alt="logo"/>
+			</div>
+			
+			<div id="enter_button_container">
+				<div id="enter_button_div">
+					<button type="button" id="enter_button">Enter!</button>
+				</div>
+			</div>
+			
+		</div>
+		
 		<div id="game_selection">
 		
 			<div id="image_selection">

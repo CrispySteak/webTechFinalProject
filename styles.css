@@ -11,9 +11,54 @@ body {
 	font: 16px sans-serif;
 	color: #666666;
 	margin: 0 auto;
-	background-color: #666666;
+	background-color: #3c9bc4;
 }
 
+#splash_screen {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #3c9bc4;
+	z-index: 10000;
+	margin: 0 auto;
+	display: block;
+}
+
+#title_div {
+	margin: 0 auto;
+	width: 30%;
+}
+
+#enter_button_container {
+	width: 40%;
+	margin: 10 auto;
+	display: block;
+	height: 60px;
+}
+
+#enter_button_div {
+	margin: 0 auto;
+	line-height: 50px;
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+
+#enter_button {
+	width: 50%;
+	font: 16px sans-serif;
+	color: #3c9bc4;
+	display: inline-block;	
+	height: 50px;
+    background-color: #eeeeee;
+	margin: 0 auto;
+	border: 0px;
+	padding: 0px;
+}
+
+#enter_button:active {
+	background-color: #cccccc;
+}
 
 /****************************/
 /* Game Selection Drop Down */

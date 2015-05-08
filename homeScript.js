@@ -67,6 +67,7 @@ $(document).ready(function(){
 	$("#previous_button").click(previousImage);
 	$("#next_button").click(nextImage);
 	$("#win_button").click(restartGame);
+	$("#enter_button").click(fadeSplash);
 	//-------------------------------------------------------------
 });
 //-------------------------------------------------------------
@@ -100,11 +101,24 @@ function setupWindow()
 	$("#game_selection").width($(window).width() - 20);
 	$("#win_screen").height($(window).height() - 50);
 	$("#win_screen").width($(window).width() - 20);
+	$("#splash_screen").height($(window).height());
+	$("#splash_screen").width($(window).width());
+	
+	chooseSize = scaleSize(600,400,document.getElementById("splash_image").naturalWidth,document.getElementById("splash_image").naturalHeight);
+	
+	$("#title_div").width(chooseSize[0]);
+	$("#title_div").height(chooseSize[1]);
+	$("#splash_image").width(chooseSize[0]);
+	$("#splash_image").height(chooseSize[1]);
 	//$("#chosen_image").show();
 	//alert(document.getElementById("chosen_image").naturalWidth);
 }
 //-------------------------------------------------------------
 
+function fadeSplash()
+{
+	$("#splash_screen").slideUp(500);
+}
 //-------------------------------------------------------------
 // Function to scale the image size to the board size
 //-------------------------------------------------------------
