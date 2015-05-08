@@ -21,15 +21,16 @@
 	{
 		if($members->item(i)->childNodes->item(3)->textContent<=$_POST[score])
 		{
-			for($j=13; j>i;j=j-2)//loop and move successive entries "down"
+			for($j=12; j>i;j=j-2)//loop and move successive entries "down"
 			{
-				$members->item(j-2)->childNodes->item(1)->textContent=$members->item(j-2)->childNodes->item(1)->textContent;
-				$members->item(j-2)->childNodes->item(3)->textContent=$members->item(j-2)->childNodes->item(3)->textContent;
+				$members->item(j)->childNodes->item(1)->textContent=$members->item(j-2)->childNodes->item(1)->textContent;
+				$members->item(j)->childNodes->item(3)->textContent=$members->item(j-2)->childNodes->item(3)->textContent;
 			}
 			$members->item(i)->childNodes->item(3)->textContent=$_POST[score];
 			$members->item(i)->childNodes->item(1)->textContent=$_POST[username];
 			$found=true;
-		}
+		}//end of if
 	}//end of for
+	$dom->save('highscores.xml'); 
 	
 ?>
