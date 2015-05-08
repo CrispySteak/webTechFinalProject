@@ -29,6 +29,16 @@
 			
 		</div>
 		
+		<div id="highscore_container">
+			<h1 id="highscore_header">High Scores</h1>
+			<div id="highscore_table">
+			</div>
+			
+			<div id="return_button_div">
+					<button type="button" class="button_class" id="return_button">Done</button>
+			</div>
+		</div>
+		
 		<div id="game_selection">
 		
 			<div id="image_selection">
@@ -90,15 +100,19 @@
 				</div>
 				<div id="leaderboard_button_div">
 					<div class="start_class">
-						<button type="button" class="button_class" id="leaderboard_button">Show Leaderboard</button>
+						<button type="button" class="button_class leaderboard_button" id="leaderboard_button">Show Leaderboard</button>
 					</div>
 				</div>
 			</div>
 			
 		</div>
-		<div id="highscore_container">
-			<div id="highscore_table">
-			</div>
+		
+		
+		
+		<div id="win_screen">
+			<h1 id="win_header"></h1>
+			
+			
 			<div id="time_label">
 				Time:
 			</div>
@@ -110,22 +124,19 @@
 			<div id="submit_score_div">
 					<button type="button" class="button_class" id="submit_score_button">Submit</button>
 			</div>
-			<div id="return_button_div">
-					<button type="button" class="button_class" id="return_button">Done</button>
-			</div>
-		</div>
-		<div id="win_screen">
-			<h1 id="win_header"></h1>
-			<div id="leaderboard_button_div2">
-				<div class="start_class">
-					<button type="button" class="button_class" id="leaderboard_button_endgame">Show Leaderboard</button>
-				</div>
-			</div>
+			
 			<div id="win_button_container">
 				<div id="win_button_div">
 					<button type="button" class="button_class" id="win_button">Play Again!</button>
 				</div>
 			</div>
+			
+			<div class="leaderboard_button_div">
+				<div class="start_class">
+					<button type="button" class="button_class leaderboard_button" id="leaderboard_button_endgame">Show Leaderboard</button>
+				</div>
+			</div>
+			
 		</div>
 		
 		<!-- The game board itself... think divs within divs, the inner divs are all displaying part of the image and are moveable and will snap -->
