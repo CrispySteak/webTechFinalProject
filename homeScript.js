@@ -70,7 +70,7 @@ $(document).ready(function(){
 	$("#win_button").click(restartGame);
 	$("#enter_button").click(fadeSplash);
 	$("#leaderboard_button").click(showLeaderboard);
-	$("#return_button").click(restartGame);
+	$("#return_button").click(function(){$("#highscore_container").fadeOut(400);});
 	$("#leaderboard_button_endgame").click(showLeaderboard);
 	//-------------------------------------------------------------
 });
@@ -107,6 +107,8 @@ function setupWindow()
 	$("#win_screen").width($(window).width() - 20);
 	$("#splash_screen").height($(window).height());
 	$("#splash_screen").width($(window).width());
+	$("#highscore_container").height($(window).height());
+	$("#highscore_container").width($(window).width());
 	
 	chooseSize = scaleSize(800,600,document.getElementById("splash_image").naturalWidth,document.getElementById("splash_image").naturalHeight);
 	
@@ -476,7 +478,7 @@ function showLeaderboard()
 	}//end of else
 	
 	fadeSplash();
-	$("#win_screen").fadeOut(250);
-	$("#game_selection").fadeOut(250);
-	$("#highscore_container").delay(250).fadeIn(250);
+	//$("#win_screen").fadeOut(250);
+	//$("#game_selection").fadeOut(250);
+	$("#highscore_container").fadeIn(250);
 }
